@@ -4,5 +4,5 @@ from __future__ import unicode_literals
 from django.apps import AppConfig
 
 
-class CustomcommandsConfig(AppConfig):
-    name = 'customcommands'
+class CustomCommandsConfig(AppConfig):
+    name = 'custom_commands'
