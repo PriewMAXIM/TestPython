@@ -24,11 +24,17 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         call_command('collectstatic', verbosity=0, interactive=False)
-        csspath = settings.STATIC_ROOT + '/css'
-        for file in os.listdir(csspath):
+        
+        
+        csspath = os.path.join(settings.STATIC_ROOT, 'css')
+        sasspath = os.path.join(settings.STATIC_ROOT, 'sass')
+        #csspath = settings.STATIC_ROOT + '/css'
+        for file in os.listdir(sasspath):
             if file.endswith(".scss"):
-                cmd1 = 'sassc ' + os.path.join(csspath, file) + ' > ' + os.path.join(csspath, os.path.splitext(file)[0] + '.css')
+                cmd1 = 'sassc ' + os.path.join(sasspath, file) + ' > ' + os.path.join(csspath, os.path.splitext(file)[0] + '.css')
                 print cmd1
                 call(cmd1, shell=True)
+                os.remove(os.path.join(sasspath, file))
+        os.rmdir(sasspath)
         self.stdout.write(self.style.SUCCESS('Successfully'))
         

@@ -25,7 +25,7 @@ SECRET_KEY = 'o^ixq_qcihwz3(-@&8(!-n0q(is+qe5i9_y5#3$7%5ztr5rs%j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'training-priewmaxim.c9users.io']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'custom_commands',
+    'app',
 ]
 
 MIDDLEWARE = [
